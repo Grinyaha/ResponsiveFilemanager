@@ -4,7 +4,7 @@
 Исходный файлменеджер https://github.com/trippo/ResponsiveFilemanager
 <br>
 Поддерживает картинки и файлы в MultiTV, ClientSettings, MultiField, PageBuilder
-Установка черех extras.<br>
+Установка черех extras.<br><br>
 <b>ВАЖНО!</b><br>
 1. После установки необходимо зайти в настройки админки и во вкладке ФАЙЛ-БРАУЗЕР в опции файл-браузер по умолчанию выбрать filemanager.
 2. Перелогиниться в админке.
