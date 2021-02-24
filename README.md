@@ -21,5 +21,5 @@ ResponsiveFilemanager for Evolution CMS (1.4 to 3)<br>
 - supported MultiTV, ClientSettings, MultiField, PageBuilder.<br>
 <br>
 <b>CAUTION!</b><br>
-1. After install select filebrowser in settings -> tab FILE-BROWSER
-2. Relogin in admin-panel.
+1. After install select filebrowser in settings -> tab FILE-BROWSER<br>
+2. Relogin in admin-panel.<br>
