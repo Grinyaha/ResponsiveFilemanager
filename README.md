@@ -13,8 +13,8 @@
 <br><br>
 Чтобы RFM работал корректно надо для PHP минимум<br>
 memory_limit = 750M<br>
-<br><br>
-English<br>
+
+<b>English</b><br>
 
 ResponsiveFilemanager for Evolution CMS (1.4 to 3)<br>
 <br>
