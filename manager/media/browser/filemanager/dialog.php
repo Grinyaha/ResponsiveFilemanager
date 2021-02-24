@@ -335,6 +335,7 @@ $get_params = http_build_query($get_params);
         <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.7.1/skin/blue.monday/jplayer.blue.monday.min.css" />
         <link href="css/style.css?v=<?php echo $version; ?>" rel="stylesheet" type="text/css" />
+        <link href="css/custom.css?z1" rel="stylesheet" type="text/css" />
         <!--[if lt IE 8]>
         <style>
             .img-container span, .img-container-mini span {
