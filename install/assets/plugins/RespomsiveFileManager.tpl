@@ -1,10 +1,10 @@
 //<?php
 /**
- * ResponSiveFileManager
+ * ResponsiveFileManager
  *
  *
  * @category    plugin
- * @version     9.14.0
+ * @version     1.9.14.0
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @package     modx
  * @internal    @events OnRichTextEditorInit,OnUserFormRender,OnModFormRender
@@ -14,7 +14,7 @@
  * @reportissues https://github.com/Grinyaha/ResponsiveFilemanager
  * @documentation https://github.com/Grinyaha/ResponsiveFilemanager/README.md
  * @author      plugin author 64j & Grinyaha
- * @author      ResponSiveFileManager author trippo (https://github.com/trippo/ResponsiveFilemanager)
+ * @author      ResponsiveFileManager author trippo (https://github.com/trippo/ResponsiveFilemanager)
  * @lastupdate  24/02/2021
  */
 
