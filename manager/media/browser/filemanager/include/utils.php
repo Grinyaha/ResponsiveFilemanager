@@ -104,12 +104,12 @@ function checkRelativePathPartial($path)
 }
 
 /**
-* Check relative path
-*
-* @param  string  $path
-*
-* @return boolean is it correct?
-*/
+ * Check relative path
+ *
+ * @param  string  $path
+ *
+ * @return boolean is it correct?
+ */
 function checkRelativePath($path)
 {
     $path_correct = checkRelativePathPartial($path);
@@ -121,13 +121,13 @@ function checkRelativePath($path)
 }
 
 /**
-* Check if the given path is an upload dir based on config
-*
-* @param  string  $path
-* @param  array $config
-*
-* @return boolean is it an upload dir?
-*/
+ * Check if the given path is an upload dir based on config
+ *
+ * @param  string  $path
+ * @param  array $config
+ *
+ * @return boolean is it an upload dir?
+ */
 function isUploadDir($path, $config)
 {
     $upload_dir = $config['current_path'];
@@ -197,12 +197,12 @@ function deleteFile($path, $path_thumb, $config)
 }
 
 /**
-* Delete directory
-*
-* @param  string  $dir
-*
-* @return  bool
-*/
+ * Delete directory
+ *
+ * @param  string  $dir
+ *
+ * @return  bool
+ */
 function deleteDir($dir, $ftp = null, $config = null)
 {
     if ($ftp) {
@@ -233,13 +233,13 @@ function deleteDir($dir, $ftp = null, $config = null)
 }
 
 /**
-* Make a file copy
-*
-* @param  string  $old_path
-* @param  string  $name      New file name without extension
-*
-* @return  bool
-*/
+ * Make a file copy
+ *
+ * @param  string  $old_path
+ * @param  string  $name      New file name without extension
+ *
+ * @return  bool
+ */
 function duplicate_file($old_path, $name, $ftp = null, $config = null)
 {
     $info = pathinfo($old_path);
@@ -572,7 +572,7 @@ function create_folder($path = null, $path_thumbs = null, $ftp = null, $config =
         }
         return true;
     } else {
-        if (file_exists($path) || file_exists($path_thumbs)) {
+        if (file_exists($path) ) { //|| file_exists($path_thumbs)
             return false;
         }
         $oldumask = umask(0);
@@ -695,12 +695,12 @@ function check_extension($extension, $config)
 }
 
 /**
-* Sanitize filename
-*
-* @param  string  $str
-*
-* @return string
-*/
+ * Sanitize filename
+ *
+ * @param  string  $str
+ *
+ * @return string
+ */
 function sanitize($str)
 {
     return strip_tags(htmlspecialchars($str));
