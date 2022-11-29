@@ -4,7 +4,7 @@
  *
  *
  * @category    plugin
- * @version     1.9.14.3
+ * @version     1.9.14.4
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @package     modx
  * @internal    @events OnRichTextEditorInit,OnUserFormRender,OnModFormRender,OnDocFormRender,OnInterfaceSettingsRender
@@ -15,7 +15,7 @@
  * @documentation https://github.com/Grinyaha/ResponsiveFilemanager/README.md
  * @author      plugin author 64j & Grinyaha
  * @author      ResponsiveFileManager author trippo (https://github.com/trippo/ResponsiveFilemanager)
- * @lastupdate  24/02/2021
+ * @lastupdate  29/11/2022
  */
 
 
@@ -63,7 +63,7 @@ $e->output($output);
 break;
 
 case 'OnInterfaceSettingsRender':
-$modx->logEvent(1,1,'<pre>'.print_r('HELLO!', true).'</pre>','Заголовок лога!!!');
+//$modx->logEvent(1,1,'<pre>'.print_r('HELLO!', true).'</pre>','Заголовок лога!!!');
 if($modx->config['which_browser'] == 'filemanager') {
 
 $output = '
