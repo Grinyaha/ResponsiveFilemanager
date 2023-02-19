@@ -134,18 +134,18 @@ $config = array(
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_base_path' => '../../../../assets/cache/filemanager/',
+    'thumbs_base_path' => '../../../../assets/.thumbs/images/',
 
- /*
-    |--------------------------------------------------------------------------
-    | path from base_url to base of thumbs folder
-    |--------------------------------------------------------------------------
-    |
-    | with final /
-    | DO NOT put inside upload folder
-    |
-    */
-	'thumbs_upload_dir' => '/assets/cache/filemanager/',
+    /*
+       |--------------------------------------------------------------------------
+       | path from base_url to base of thumbs folder
+       |--------------------------------------------------------------------------
+       |
+       | with final /
+       | DO NOT put inside upload folder
+       |
+       */
+    'thumbs_upload_dir' => '/assets/.thumbs/images/',
 
 
 	/*
