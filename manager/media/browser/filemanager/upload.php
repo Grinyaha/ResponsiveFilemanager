@@ -8,7 +8,7 @@ try {
     include 'include/utils.php';
 
     if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager") {
-        response(rfm_trans('forbidden') . AddErrorLocation(), 403)->send();
+        response(trans('forbidden') . AddErrorLocation(), 403)->send();
         exit;
     }
 
@@ -35,7 +35,7 @@ try {
     $fldr = rawurldecode(trim(strip_tags($_POST['fldr']), "/") . "/");
 
     if (!checkRelativePath($fldr)) {
-        response(rfm_trans('wrong path') . AddErrorLocation())->send();
+        response(trans('wrong path') . AddErrorLocation())->send();
         exit;
     }
 
@@ -53,7 +53,7 @@ try {
             $configMain = $config;
             $configTemp = include $path . 'config.php';
             if(is_array($configTemp) && count($configTemp) > 0){
-                $config = array_merge($configMain, $configTemp);                
+                $config = array_merge($configMain, $configTemp);
                 $config['ext'] = array_merge(
                     $config['ext_img'],
                     $config['ext_file'],
@@ -73,10 +73,9 @@ try {
 
     require('UploadHandler.php');
     $messages = null;
-    if (rfm_trans("Upload_error_messages") !== "Upload_error_messages") {
-        $messages = rfm_trans("Upload_error_messages");
+    if (trans("Upload_error_messages") !== "Upload_error_messages") {
+        $messages = trans("Upload_error_messages");
     }
-
     if ($config['url_upload']) {
         // make sure the length is limited to avoid DOS attacks
         if (isset($_POST['url']) && strlen($_POST['url']) < 2000) {
@@ -84,7 +83,7 @@ try {
             $urlPattern = '/^(https?:\/\/)?([\da-z\.-]+\.[a-z\.]{2,6}|[\d\.]+)([\/?=&#]{1}[\da-z\.-]+)*[\/\?]?$/i';
 
             if (preg_match($urlPattern, $url)) {
-                $temp = tempnam('/tmp','RF');
+                $temp = tempnam('/tmp', 'RF');
 
                 $ch = curl_init($url);
                 $fp = fopen($temp, 'wb');
@@ -98,17 +97,18 @@ try {
                 curl_close($ch);
                 fclose($fp);
 
-                $_FILES['files'] = array(
-                    'name' => array(basename($_POST['url'])),
-                    'tmp_name' => array($temp),
-                    'size' => array(filesize($temp)),
+                $_FILES['files'] = [
+                    'name' => [basename($_POST['url'])],
+                    'tmp_name' => [$temp],
+                    'size' => [filesize($temp)],
                     'type' => null
-                );
+                ];
             } else {
                 throw new Exception('Is not a valid URL.');
             }
         }
     }
+
 
     if ($config['mime_extension_rename']) {
         $info = pathinfo($_FILES['files']['name'][0]);
@@ -145,12 +145,12 @@ try {
             // Avoid " Warning: Creating default object from empty value ... "
             $upload_handler->response['files'][0] = new stdClass();
         }
-        $upload_handler->response['files'][0]->error = sprintf(rfm_trans('max_size_reached'), $config['MaxSizeTotal']) . AddErrorLocation();
+        $upload_handler->response['files'][0]->error = sprintf(trans('max_size_reached'), $config['MaxSizeTotal']) . AddErrorLocation();
         echo json_encode($upload_handler->response);
         exit();
     }
 
-    $uploadConfig = array(
+    $uploadConfig = [
         'config' => $config,
         'storeFolder' => $storeFolder,
         'storeFolderThumb' => $storeFolderThumb,
@@ -161,7 +161,7 @@ try {
         'max_file_size' => $config['MaxSizeUpload'] * 1024 * 1024,
         'correct_image_extensions' => true,
         'print_response' => false
-    );
+    ];
 
     if (!$config['ext_blacklist']) {
         $uploadConfig['accept_file_types'] = '/\.(' . implode('|', $config['ext']) . ')$/i';
@@ -192,21 +192,21 @@ try {
     //print_r($_FILES);die();
     $upload_handler = new UploadHandler($uploadConfig, true, $messages);
 } catch (Exception $e) {
-    $return = array();
+    $return = [];
 
     if ($_FILES['files']) {
         foreach ($_FILES['files']['name'] as $i => $name) {
-            $return[] = array(
+            $return[] = [
                 'name' => $name,
                 'error' => $e->getMessage(),
                 'size' => $_FILES['files']['size'][$i],
                 'type' => $_FILES['files']['type'][$i]
-            );
+            ];
         }
 
-        echo json_encode(array("files" => $return));
+        echo json_encode(["files" => $return]);
         return;
     }
 
-    echo json_encode(array("error" => $e->getMessage()));
+    echo json_encode(["error" => $e->getMessage()]);
 }
