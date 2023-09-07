@@ -641,3 +641,16 @@ return array_merge(
             'range.subbar.color'                => $config['range.subbar.color'],
             'range.disabledPointer.color'       => $config['range.disabledPointer.color'],
             'range.disabledBar.color'           => $config['range.disabledBar.color'],
+            'range.disabledSubbar.color'        => $config['range.disabledSubbar.color'],
+            'range.value.color'                 => $config['range.value.color'],
+            'range.value.fontWeight'            => $config['range.value.fontWeight'],
+            'range.value.fontSize'              => $config['range.value.fontSize'],
+            'range.value.border'                => $config['range.value.border'],
+            'range.value.backgroundColor'       => $config['range.value.backgroundColor'],
+            'range.title.color'                 => $config['range.title.color'],
+            'range.title.fontWeight'            => $config['range.title.fontWeight'],
+            'colorpicker.button.border'         => $config['colorpicker.button.border'],
+            'colorpicker.title.color'           => $config['colorpicker.title.color']
+        ],
+    ]
+);
