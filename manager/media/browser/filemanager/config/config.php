@@ -21,9 +21,6 @@ if (empty ($modx->config)) {
 
 if($modx->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
 
-$modx->logEvent(1,1,'<pre>'.print_r($modx->getConfig('manager_language'), true).'</pre>','Заголовок лога');
-
-
 $version = "1.9.14.6";
 if (session_id() == '') {
     session_start();
@@ -96,6 +93,7 @@ if(!empty($_GET['type'])) {
         $_SESSION['cp'] = $_COOKIE['cp'];
     }
 }
+else
 
 
 $config = [
