@@ -93,7 +93,7 @@ if(!empty($_GET['type'])) {
         $_SESSION['cp'] = $_COOKIE['cp'];
     }
 }
-else
+
 
 
 $config = [
