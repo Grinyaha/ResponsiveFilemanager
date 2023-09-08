@@ -77,7 +77,7 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 |    |   |   |   |- responsivefilemanager
 |    |   |   |   |   |- plugin.min.js
 */
-if(!empty($_GET['type'])) {
+if(!empty($_GET['type']) || !empty($_GET['Type'])) {
     if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
         $_SESSION['up'] = '/assets/images/';
         $_SESSION['cp'] = '../../../../assets/images/';
