@@ -24,7 +24,7 @@ if (!function_exists('response')) {
     }
 }
 
-if (!function_exists('trans')) {
+if (!function_exists('rfm_trans')) {
     /**
      * Translate language variable
      *
@@ -32,7 +32,7 @@ if (!function_exists('trans')) {
      *
      * @return string translated variable
      */
-    function trans($var)
+    function rfm_trans($var)
     {
         global $lang_vars;
 

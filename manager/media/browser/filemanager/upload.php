@@ -8,7 +8,7 @@ try {
     include 'include/utils.php';
 
     if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager") {
-        response(trans('forbidden') . AddErrorLocation(), 403)->send();
+        response(rfm_trans('forbidden') . AddErrorLocation(), 403)->send();
         exit;
     }
 
@@ -35,7 +35,7 @@ try {
     $fldr = rawurldecode(trim(strip_tags($_POST['fldr']), "/") . "/");
 
     if (!checkRelativePath($fldr)) {
-        response(trans('wrong path') . AddErrorLocation())->send();
+        response(rfm_trans('wrong path') . AddErrorLocation())->send();
         exit;
     }
 
@@ -73,8 +73,8 @@ try {
 
     require('UploadHandler.php');
     $messages = null;
-    if (trans("Upload_error_messages") !== "Upload_error_messages") {
-        $messages = trans("Upload_error_messages");
+    if (rfm_trans("Upload_error_messages") !== "Upload_error_messages") {
+        $messages = rfm_trans("Upload_error_messages");
     }
     if ($config['url_upload']) {
         // make sure the length is limited to avoid DOS attacks
@@ -145,7 +145,7 @@ try {
             // Avoid " Warning: Creating default object from empty value ... "
             $upload_handler->response['files'][0] = new stdClass();
         }
-        $upload_handler->response['files'][0]->error = sprintf(trans('max_size_reached'), $config['MaxSizeTotal']) . AddErrorLocation();
+        $upload_handler->response['files'][0]->error = sprintf(rfm_trans('max_size_reached'), $config['MaxSizeTotal']) . AddErrorLocation();
         echo json_encode($upload_handler->response);
         exit();
     }

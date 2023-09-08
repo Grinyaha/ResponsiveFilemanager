@@ -460,19 +460,19 @@ echo $cur_dir; ?>"/>
 <input type="hidden" id="cur_dir_thumb" value="<?php
 echo $cur_dir_thumb; ?>"/>
 <input type="hidden" id="insert_folder_name" value="<?php
-echo trans('Insert_Folder_Name'); ?>"/>
+echo rfm_trans('Insert_Folder_Name'); ?>"/>
 <input type="hidden" id="rename_existing_folder" value="<?php
-echo trans('Rename_existing_folder'); ?>"/>
+echo rfm_trans('Rename_existing_folder'); ?>"/>
 <input type="hidden" id="new_folder" value="<?php
-echo trans('New_Folder'); ?>"/>
+echo rfm_trans('New_Folder'); ?>"/>
 <input type="hidden" id="ok" value="<?php
-echo trans('OK'); ?>"/>
+echo rfm_trans('OK'); ?>"/>
 <input type="hidden" id="cancel" value="<?php
-echo trans('Cancel'); ?>"/>
+echo rfm_trans('Cancel'); ?>"/>
 <input type="hidden" id="rename" value="<?php
-echo trans('Rename'); ?>"/>
+echo rfm_trans('Rename'); ?>"/>
 <input type="hidden" id="lang_duplicate" value="<?php
-echo trans('Duplicate'); ?>"/>
+echo rfm_trans('Duplicate'); ?>"/>
 <input type="hidden" id="duplicate" value="<?php
 if ($config['duplicate_files']) {
     echo 1;
@@ -502,7 +502,7 @@ echo str_replace(
     $config['base_url'] . htmlspecialchars($_SERVER['REQUEST_URI'])
 ); ?>"/>
 <input type="hidden" id="lang_show_url" value="<?php
-echo trans('Show_url'); ?>"/>
+echo rfm_trans('Show_url'); ?>"/>
 <input type="hidden" id="copy_cut_files_allowed" value="<?php
 if ($config['copy_cut_files']) {
     echo 1;
@@ -520,27 +520,27 @@ echo $config['copy_cut_max_size']; ?>"/>
 <input type="hidden" id="copy_cut_max_count" value="<?php
 echo $config['copy_cut_max_count']; ?>"/>
 <input type="hidden" id="lang_copy" value="<?php
-echo trans('Copy'); ?>"/>
+echo rfm_trans('Copy'); ?>"/>
 <input type="hidden" id="lang_cut" value="<?php
-echo trans('Cut'); ?>"/>
+echo rfm_trans('Cut'); ?>"/>
 <input type="hidden" id="lang_paste" value="<?php
-echo trans('Paste'); ?>"/>
+echo rfm_trans('Paste'); ?>"/>
 <input type="hidden" id="lang_paste_here" value="<?php
-echo trans('Paste_Here'); ?>"/>
+echo rfm_trans('Paste_Here'); ?>"/>
 <input type="hidden" id="lang_paste_confirm" value="<?php
-echo trans('Paste_Confirm'); ?>"/>
+echo rfm_trans('Paste_Confirm'); ?>"/>
 <input type="hidden" id="lang_files" value="<?php
-echo trans('Files'); ?>"/>
+echo rfm_trans('Files'); ?>"/>
 <input type="hidden" id="lang_folders" value="<?php
-echo trans('Folders'); ?>"/>
+echo rfm_trans('Folders'); ?>"/>
 <input type="hidden" id="lang_files_on_clipboard" value="<?php
-echo trans('Files_ON_Clipboard'); ?>"/>
+echo rfm_trans('Files_ON_Clipboard'); ?>"/>
 <input type="hidden" id="clipboard" value="<?php
 echo((isset($_SESSION['RF']['clipboard']['path']) && trim($_SESSION['RF']['clipboard']['path']) != null) ? 1 : 0); ?>"/>
 <input type="hidden" id="lang_clear_clipboard_confirm" value="<?php
-echo trans('Clear_Clipboard_Confirm'); ?>"/>
+echo rfm_trans('Clear_Clipboard_Confirm'); ?>"/>
 <input type="hidden" id="lang_file_permission" value="<?php
-echo trans('File_Permission'); ?>"/>
+echo rfm_trans('File_Permission'); ?>"/>
 <input type="hidden" id="chmod_files_allowed" value="<?php
 if ($config['chmod_files']) {
     echo 1;
@@ -554,7 +554,7 @@ if ($config['chmod_dirs']) {
     echo 0;
 } ?>"/>
 <input type="hidden" id="lang_lang_change" value="<?php
-echo trans('Lang_Change'); ?>"/>
+echo rfm_trans('Lang_Change'); ?>"/>
 <input type="hidden" id="edit_text_files_allowed" value="<?php
 if ($config['edit_text_files']) {
     echo 1;
@@ -562,21 +562,21 @@ if ($config['edit_text_files']) {
     echo 0;
 } ?>"/>
 <input type="hidden" id="lang_edit_file" value="<?php
-echo trans('Edit_File'); ?>"/>
+echo rfm_trans('Edit_File'); ?>"/>
 <input type="hidden" id="lang_new_file" value="<?php
-echo trans('New_File'); ?>"/>
+echo rfm_trans('New_File'); ?>"/>
 <input type="hidden" id="lang_filename" value="<?php
-echo trans('Filename'); ?>"/>
+echo rfm_trans('Filename'); ?>"/>
 <input type="hidden" id="lang_file_info" value="<?php
-echo fix_strtoupper(trans('File_info')); ?>"/>
+echo fix_strtoupper(rfm_trans('File_info')); ?>"/>
 <input type="hidden" id="lang_edit_image" value="<?php
-echo trans('Edit_image'); ?>"/>
+echo rfm_trans('Edit_image'); ?>"/>
 <input type="hidden" id="lang_error_upload" value="<?php
-echo trans('Error_Upload'); ?>"/>
+echo rfm_trans('Error_Upload'); ?>"/>
 <input type="hidden" id="lang_select" value="<?php
-echo trans('Select'); ?>"/>
+echo rfm_trans('Select'); ?>"/>
 <input type="hidden" id="lang_extract" value="<?php
-echo trans('Extract'); ?>"/>
+echo rfm_trans('Extract'); ?>"/>
 <input type="hidden" id="extract_files" value="<?php
 if ($config['extract_files']) {
     echo 1;
@@ -602,18 +602,18 @@ if ($config['upload_files']) { ?>
         <div class="flex">
             <div class="text-center">
                 <button class="btn btn-inverse close-uploader"><i class="icon-backward icon-white"></i> <?php
-                    echo trans('Return_Files_List') ?></button>
+                    echo rfm_trans('Return_Files_List') ?></button>
             </div>
             <div class="space10"></div>
             <div class="tabbable upload-tabbable"> <!-- Only required for left/right tabs -->
                 <div class="container1">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#baseUpload" data-toggle="tab"><?php
-                                echo trans('Upload_base'); ?></a></li>
+                                echo rfm_trans('Upload_base'); ?></a></li>
                         <?php
                         if ($config['url_upload']) { ?>
                             <li><a href="#urlUpload" data-toggle="tab"><?php
-                                    echo trans('Upload_url'); ?></a></li>
+                                    echo rfm_trans('Upload_url'); ?></a></li>
                         <?php
                         } ?>
                     </ul>
@@ -638,14 +638,14 @@ if ($config['upload_files']) { ?>
                                             <span class="btn btn-success fileinput-button">
                                         <i class="glyphicon glyphicon-plus"></i>
                                         <span><?php
-                                            echo trans('Upload_add_files'); ?></span>
+                                            echo rfm_trans('Upload_add_files'); ?></span>
                                         <input type="file" name="files[]" multiple="multiple" accept="<?php
                                         echo '.' . implode(',.', $config['ext']); ?>">
                                     </span>
                                             <button type="submit" class="btn btn-warning start">
                                                 <i class="glyphicon glyphicon-upload"></i>
                                                 <span><?php
-                                                    echo trans('Upload_start'); ?></span>
+                                                    echo rfm_trans('Upload_start'); ?></span>
                                             </button>
                                             <!-- The global file processing state -->
                                             <span class="fileupload-process"></span>
@@ -658,7 +658,7 @@ if ($config['upload_files']) { ?>
                                         </table>
                                     </div>
                                     <div class="upload-help"><?php
-                                        echo trans('Upload_base_help'); ?></div>
+                                        echo rfm_trans('Upload_base_help'); ?></div>
                                 </div>
                             </form>
                             <!-- The template to display files available for upload -->
@@ -737,16 +737,16 @@ if ($config['upload_files']) { ?>
                                 <form class="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label" for="url"><?php
-                                            echo trans('Upload_url'); ?></label>
+                                            echo rfm_trans('Upload_url'); ?></label>
                                         <div class="controls">
                                             <input type="text" class="input-block-level" id="url" placeholder="<?php
-                                            echo trans('Upload_url'); ?>">
+                                            echo rfm_trans('Upload_url'); ?>">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="controls">
                                             <button class="btn btn-primary" id="uploadURL"><?php
-                                                echo trans('Upload_file'); ?></button>
+                                                echo rfm_trans('Upload_file'); ?></button>
                                         </div>
                                     </div>
                                 </form>
@@ -807,7 +807,7 @@ if ($config['upload_files']) { ?>
                 $is_dir = false;
             } else {
                 $current_folders_number++;
-                $file_ext = trans('Type_dir');
+                $file_ext = rfm_trans('Type_dir');
                 $is_dir = true;
             }
             $sorted[$k] = [
@@ -825,10 +825,10 @@ if ($config['upload_files']) { ?>
                     $date = filemtime($config['current_path'] . $rfm_subfolder . $subdir . $file);
                     if (!($file == '.' || substr($file, 0, 1) == '.' ||
                         (isset($file_array['extension']) && $file_array['extension'] == fix_strtolower(
-                                trans('Type_dir')
+                                rfm_trans('Type_dir')
                             )) ||
                         (isset($file_array['extension']) && $file_array['extension'] != fix_strtolower(
-                                trans('Type_dir')
+                                rfm_trans('Type_dir')
                             )) ||
                         ($file == '..' && $subdir == '') ||
                         in_array($file, $config['hidden_folders']) ||
@@ -846,7 +846,7 @@ if ($config['upload_files']) { ?>
                     } else {
                         $size = 0;
                     }
-                    $file_ext = trans('Type_dir');
+                    $file_ext = rfm_trans('Type_dir');
                     $sorted[$k] = [
                         'is_dir' => true,
                         'file' => $file,
@@ -948,7 +948,7 @@ if ($config['upload_files']) { ?>
                     <span class="icon-bar"></span>
                 </button>
                 <div class="brand"><?php
-                    echo trans('Toolbar'); ?></div>
+                    echo rfm_trans('Toolbar'); ?></div>
                 <div class="nav-collapse collapse">
                     <div class="filters">
                         <div class="row-fluid">
@@ -956,29 +956,29 @@ if ($config['upload_files']) { ?>
                                 <?php
                                 if ($config['upload_files']) { ?>
                                     <button class="tip btn btn-success upload-btn" title="<?php
-                                    echo trans('Upload_file'); ?>"><i class="rficon-upload"></i> <?php echo trans('Upload_file'); ?></button>
+                                    echo rfm_trans('Upload_file'); ?>"><i class="rficon-upload"></i> <?php echo rfm_trans('Upload_file'); ?></button>
                                 <?php
                                 } ?>
                                 <?php
                                 if ($config['create_text_files']) { ?>
                                     <button class="tip btn create-file-btn" title="<?php
-                                    echo trans('New_File'); ?>"><i class="icon-plus"></i><i class="icon-file"></i>
+                                    echo rfm_trans('New_File'); ?>"><i class="icon-plus"></i><i class="icon-file"></i>
                                     </button>
                                 <?php
                                 } ?>
                                 <?php
                                 if ($config['create_folders']) { ?>
                                     <button class="tip btn new-folder" title="<?php
-                                    echo trans('New_Folder') ?>"><i class="icon-plus"></i><i
+                                    echo rfm_trans('New_Folder') ?>"><i class="icon-plus"></i><i
                                                 class="icon-folder-open"></i></button>
                                 <?php
                                 } ?>
                                 <?php
                                 if ($config['copy_cut_files'] || $config['copy_cut_dirs']) { ?>
                                     <button class="tip btn paste-here-btn" title="<?php
-                                    echo trans('Paste_Here'); ?>"><i class="rficon-clipboard-apply"></i></button>
+                                    echo rfm_trans('Paste_Here'); ?>"><i class="rficon-clipboard-apply"></i></button>
                                     <button class="tip btn clear-clipboard-btn" title="<?php
-                                    echo trans('Clear_Clipboard'); ?>"><i class="rficon-clipboard-clear"></i></button>
+                                    echo rfm_trans('Clear_Clipboard'); ?>"><i class="rficon-clipboard-clear"></i></button>
                                 <?php
                                 } ?>
                                 <div id="multiple-selection" style="display:none;">
@@ -987,19 +987,19 @@ if ($config['upload_files']) { ?>
                                         <?php
                                         if ($config['delete_files']) { ?>
                                             <button class="tip btn multiple-delete-btn" title="<?php
-                                            echo trans('Erase'); ?>" data-confirm="<?php
-                                            echo trans('Confirm_del'); ?>"><i class="icon-trash"></i></button>
+                                            echo rfm_trans('Erase'); ?>" data-confirm="<?php
+                                            echo rfm_trans('Confirm_del'); ?>"><i class="icon-trash"></i></button>
                                         <?php
                                         } ?>
                                         <button class="tip btn multiple-select-btn" title="<?php
-                                        echo trans('Select_All'); ?>"><i class="icon-check"></i></button>
+                                        echo rfm_trans('Select_All'); ?>"><i class="icon-check"></i></button>
                                         <button class="tip btn multiple-deselect-btn" title="<?php
-                                        echo trans('Deselect_All'); ?>"><i class="icon-ban-circle"></i></button>
+                                        echo rfm_trans('Deselect_All'); ?>"><i class="icon-ban-circle"></i></button>
                                         <?php
                                         if ($apply_type != "apply_none" && $config['multiple_selection_action_button']) { ?>
                                             <button class="btn multiple-action-btn btn-inverse" data-function="<?php
                                             echo $apply_type; ?>"><?php
-                                                echo trans('Select'); ?></button>
+                                                echo rfm_trans('Select'); ?></button>
                                         <?php
                                         } ?>
                                     <?php
@@ -1011,7 +1011,7 @@ if ($config['upload_files']) { ?>
                                 if ($view == 0) {
                                     echo " btn-inverse";
                                 } ?>" id="view0" data-value="0" title="<?php
-                                echo trans('View_boxes'); ?>"><i class="icon-th <?php
+                                echo rfm_trans('View_boxes'); ?>"><i class="icon-th <?php
                                     if ($view == 0) {
                                         echo "icon-white";
                                     } ?>"></i></button>
@@ -1019,7 +1019,7 @@ if ($config['upload_files']) { ?>
                                 if ($view == 1) {
                                     echo " btn-inverse";
                                 } ?>" id="view1" data-value="1" title="<?php
-                                echo trans('View_list'); ?>"><i class="icon-align-justify <?php
+                                echo rfm_trans('View_list'); ?>"><i class="icon-align-justify <?php
                                     if ($view == 1) {
                                         echo "icon-white";
                                     } ?>"></i></button>
@@ -1027,14 +1027,14 @@ if ($config['upload_files']) { ?>
                                 if ($view == 2) {
                                     echo " btn-inverse";
                                 } ?>" id="view2" data-value="2" title="<?php
-                                echo trans('View_columns_list'); ?>"><i class="icon-fire <?php
+                                echo rfm_trans('View_columns_list'); ?>"><i class="icon-fire <?php
                                     if ($view == 2) {
                                         echo "icon-white";
                                     } ?>"></i></button>
                             </div>
                             <div class="span6 entire types">
                                 <span><?php
-                                    echo trans('Filters'); ?>:</span>
+                                    echo rfm_trans('Filters'); ?>:</span>
                                 <?php
                                 if ($_GET['type'] != 1 && $_GET['type'] != 3 && $config['show_filter_buttons']) { ?>
                                     <?php
@@ -1042,7 +1042,7 @@ if ($config['upload_files']) { ?>
                                         <input id="select-type-1" name="radio-sort" type="radio"
                                                data-item="ff-item-type-1" checked="checked" class="hide"/>
                                         <label id="ff-item-type-1" title="<?php
-                                        echo trans('Files'); ?>" for="select-type-1" class="tip btn ff-label-type-1"><i
+                                        echo rfm_trans('Files'); ?>" for="select-type-1" class="tip btn ff-label-type-1"><i
                                                     class="icon-file"></i></label>
                                     <?php
                                     } ?>
@@ -1051,7 +1051,7 @@ if ($config['upload_files']) { ?>
                                         <input id="select-type-2" name="radio-sort" type="radio"
                                                data-item="ff-item-type-2" class="hide"/>
                                         <label id="ff-item-type-2" title="<?php
-                                        echo trans('Images'); ?>" for="select-type-2" class="tip btn ff-label-type-2"><i
+                                        echo rfm_trans('Images'); ?>" for="select-type-2" class="tip btn ff-label-type-2"><i
                                                     class="icon-picture"></i></label>
                                     <?php
                                     } ?>
@@ -1060,7 +1060,7 @@ if ($config['upload_files']) { ?>
                                         <input id="select-type-3" name="radio-sort" type="radio"
                                                data-item="ff-item-type-3" class="hide"/>
                                         <label id="ff-item-type-3" title="<?php
-                                        echo trans('Archives'); ?>" for="select-type-3" class="tip btn ff-label-type-3"><i
+                                        echo rfm_trans('Archives'); ?>" for="select-type-3" class="tip btn ff-label-type-3"><i
                                                     class="icon-inbox"></i></label>
                                     <?php
                                     } ?>
@@ -1069,7 +1069,7 @@ if ($config['upload_files']) { ?>
                                         <input id="select-type-4" name="radio-sort" type="radio"
                                                data-item="ff-item-type-4" class="hide"/>
                                         <label id="ff-item-type-4" title="<?php
-                                        echo trans('Videos'); ?>" for="select-type-4" class="tip btn ff-label-type-4"><i
+                                        echo rfm_trans('Videos'); ?>" for="select-type-4" class="tip btn ff-label-type-4"><i
                                                     class="icon-film"></i></label>
                                     <?php
                                     } ?>
@@ -1078,7 +1078,7 @@ if ($config['upload_files']) { ?>
                                         <input id="select-type-5" name="radio-sort" type="radio"
                                                data-item="ff-item-type-5" class="hide"/>
                                         <label id="ff-item-type-5" title="<?php
-                                        echo trans('Music'); ?>" for="select-type-5" class="tip btn ff-label-type-5"><i
+                                        echo rfm_trans('Music'); ?>" for="select-type-5" class="tip btn ff-label-type-5"><i
                                                     class="icon-music"></i></label>
                                     <?php
                                     } ?>
@@ -1087,7 +1087,7 @@ if ($config['upload_files']) { ?>
                                 <input accesskey="f" type="text" class="filter-input <?php
                                 echo(($_GET['type'] != 1 && $_GET['type'] != 3) ? '' : 'filter-input-notype'); ?>"
                                        id="filter-input" name="filter" placeholder="<?php
-                                echo fix_strtolower(trans('Text_filter')); ?>..." value="<?php
+                                echo fix_strtolower(rfm_trans('Text_filter')); ?>..." value="<?php
                                 echo $filter; ?>"/><?php
                                 if ($n_files > $config['file_number_limit_js']) { ?><label id="filter" class="btn"><i
                                             class="icon-play"></i></label><?php
@@ -1096,11 +1096,11 @@ if ($config['upload_files']) { ?>
                                 <input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all"
                                        class="hide"/>
                                 <label id="ff-item-type-all" title="<?php
-                                echo trans('All'); ?>" <?php
+                                echo rfm_trans('All'); ?>" <?php
                                        if ($_GET['type'] == 1 || $_GET['type'] == 3){ ?>style="visibility: hidden;" <?php
                                 } ?> data-item="ff-item-type-all" for="select-type-all" style="margin-rigth:0px;"
                                        class="tip btn btn-inverse ff-label-type-all"><?php
-                                    echo trans('All'); ?></label>
+                                    echo rfm_trans('All'); ?></label>
 
                             </div>
                         </div>
@@ -1163,45 +1163,45 @@ if ($config['upload_files']) { ?>
                     </a>
                     <ul class="dropdown-menu pull-left sorting">
                         <li class="text-center"><strong><?php
-                                echo trans('Sorting') ?></strong></li>
+                                echo rfm_trans('Sorting') ?></strong></li>
                         <li><a class="sorter sort-name <?php
                             if ($sort_by === "name") {
                                 echo ($descending) ? "descending" : "ascending";
                             } ?>" href="javascript:void('')" data-sort="name"><?php
-                                echo trans('Filename'); ?></a></li>
+                                echo rfm_trans('Filename'); ?></a></li>
                         <li><a class="sorter sort-date <?php
                             if ($sort_by == "date") {
                                 echo ($descending) ? "descending" : "ascending";
                             } ?>" href="javascript:void('')" data-sort="date"><?php
-                                echo trans('Date'); ?></a></li>
+                                echo rfm_trans('Date'); ?></a></li>
                         <li><a class="sorter sort-size <?php
                             if ($sort_by == "size") {
                                 echo ($descending) ? "descending" : "ascending";
                             } ?>" href="javascript:void('')" data-sort="size"><?php
-                                echo trans('Size'); ?></a></li>
+                                echo rfm_trans('Size'); ?></a></li>
                         <li><a class="sorter sort-extension <?php
                             if ($sort_by == "extension") {
                                 echo ($descending) ? "descending" : "ascending";
                             } ?>" href="javascript:void('')" data-sort="extension"><?php
-                                echo trans('Type'); ?></a></li>
+                                echo rfm_trans('Type'); ?></a></li>
                     </ul>
                 </div>
             </li>
             <li><small class="hidden-phone">(<span id="files_number"><?php
-                        echo $current_files_number . "</span> " . trans(
+                        echo $current_files_number . "</span> " . rfm_trans(
                                 'Files'
-                            ) . " - <span id='folders_number'>" . $current_folders_number . "</span> " . trans(
+                            ) . " - <span id='folders_number'>" . $current_folders_number . "</span> " . rfm_trans(
                                 'Folders'
                             ); ?>)</small></li>
             <?php
             if ($config['show_total_size']) { ?>
                 <li><small class="hidden-phone"><span title="<?php
-                        echo trans('total size') . $config['MaxSizeTotal']; ?>"><?php
-                            echo trans('total size') . ": " . makeSize(
+                        echo rfm_trans('total size') . $config['MaxSizeTotal']; ?>"><?php
+                            echo rfm_trans('total size') . ": " . makeSize(
                                     $sizeCurrentFolder
                                 ) . (($config['MaxSizeTotal'] !== false && is_int(
                                         $config['MaxSizeTotal']
-                                    )) ? '/' . $config['MaxSizeTotal'] . ' ' . trans('MB') : ''); ?></span></small>
+                                    )) ? '/' . $config['MaxSizeTotal'] . ' ' . rfm_trans('MB') : ''); ?></span></small>
                 </li>
             <?php
             } ?>
@@ -1219,7 +1219,7 @@ if ($config['upload_files']) { ?>
             </div>
             <?php }else{ ?>
             <h4 id="help"><?php
-                echo trans('Swipe_help'); ?></h4>
+                echo rfm_trans('Swipe_help'); ?></h4>
             <?php if(isset($config['folder_message'])){ ?>
             <div class="alert alert-block"><?php
                 echo $config['folder_message']; ?></div>
@@ -1232,26 +1232,26 @@ if ($config['upload_files']) { ?>
                     if ($sort_by == "name") {
                         echo ($descending) ? "descending" : "ascending";
                     } ?>" href="javascript:void('')" data-sort="name"><?php
-                        echo trans('Filename'); ?></a></div>
+                        echo rfm_trans('Filename'); ?></a></div>
                 <div class="file-date"><a class="sorter sort-date <?php
                     if ($sort_by == "date") {
                         echo ($descending) ? "descending" : "ascending";
                     } ?>" href="javascript:void('')" data-sort="date"><?php
-                        echo trans('Date'); ?></a></div>
+                        echo rfm_trans('Date'); ?></a></div>
                 <div class="file-size"><a class="sorter sort-size <?php
                     if ($sort_by == "size") {
                         echo ($descending) ? "descending" : "ascending";
                     } ?>" href="javascript:void('')" data-sort="size"><?php
-                        echo trans('Size'); ?></a></div>
+                        echo rfm_trans('Size'); ?></a></div>
                 <div class='img-dimension'><?php
-                    echo trans('Dimension'); ?></div>
+                    echo rfm_trans('Dimension'); ?></div>
                 <div class='file-extension'><a class="sorter sort-extension <?php
                     if ($sort_by == "extension") {
                         echo ($descending) ? "descending" : "ascending";
                     } ?>" href="javascript:void('')" data-sort="extension"><?php
-                        echo trans('Type'); ?></a></div>
+                        echo rfm_trans('Type'); ?></a></div>
                 <div class='file-operations'><?php
-                    echo trans('Operations'); ?></div>
+                    echo rfm_trans('Operations'); ?></div>
             </div>
             <?php } ?>
 
@@ -1270,9 +1270,9 @@ if ($config['upload_files']) { ?>
                                 0,
                                 1
                             ) == '.' && isset($file_array['extension']) && $file_array['extension'] == fix_strtolower(
-                                trans('Type_dir')
+                                rfm_trans('Type_dir')
                             )) || (isset($file_array['extension']) && $file_array['extension'] != fix_strtolower(
-                                trans('Type_dir')
+                                rfm_trans('Type_dir')
                             )) || ($file == '..' && $subdir == '') || in_array(
                             $file,
                             $config['hidden_folders']
@@ -1371,7 +1371,7 @@ if ($config['upload_files']) { ?>
                                 if ($file == ".."){ ?>
                                 <div class="box no-effect">
                                     <h4><?php
-                                        echo trans('Back') ?></h4>
+                                        echo rfm_trans('Back') ?></h4>
                                 </div>
                             </a>
 
@@ -1394,9 +1394,9 @@ if ($config['upload_files']) { ?>
                             <input type="hidden" class="size" value="<?php
                             echo $file_array['size']; ?>"/>
                             <input type="hidden" class="extension" value="<?php
-                            echo fix_strtolower(trans('Type_dir')); ?>"/>
+                            echo fix_strtolower(rfm_trans('Type_dir')); ?>"/>
                             <div class="file-date"><?php
-                                echo date(trans('Date_type'), $file_array['date']); ?></div>
+                                echo date(rfm_trans('Date_type'), $file_array['date']); ?></div>
                             <?php
                             if ($config['show_folder_size']) { ?>
                                 <div class="file-size"><?php
@@ -1408,13 +1408,13 @@ if ($config['upload_files']) { ?>
                             <?php
                             } ?>
                             <div class='file-extension'><?php
-                                echo fix_strtolower(trans('Type_dir')); ?></div>
+                                echo fix_strtolower(rfm_trans('Type_dir')); ?></div>
                             <figcaption>
                                 <a href="javascript:void('')" class="tip-left edit-button rename-file-paths <?php
                                 if ($config['rename_folders'] && !$file_prevent_rename) {
                                     echo "rename-folder";
                                 } ?>" title="<?php
-                                echo trans('Rename') ?>" data-folder="1" data-permissions="<?php
+                                echo rfm_trans('Rename') ?>" data-folder="1" data-permissions="<?php
                                 echo $file_array['permissions']; ?>">
                                     <i class="icon-pencil <?php
                                     if (!$config['rename_folders'] || $file_prevent_rename) {
@@ -1424,8 +1424,8 @@ if ($config['upload_files']) { ?>
                                 if ($config['delete_folders'] && !$file_prevent_delete) {
                                     echo "delete-folder";
                                 } ?>" title="<?php
-                                echo trans('Erase') ?>" data-confirm="<?php
-                                echo trans('Confirm_Folder_del'); ?>">
+                                echo rfm_trans('Erase') ?>" data-confirm="<?php
+                                echo rfm_trans('Confirm_Folder_del'); ?>">
                                     <i class="icon-trash <?php
                                     if (!$config['delete_folders'] || $file_prevent_delete) {
                                         echo 'icon-white';
@@ -1447,7 +1447,7 @@ if ($config['upload_files']) { ?>
                 $file = $file_array['file'];
 
                 if ($file == '.' || $file == '..' || $file_array['extension'] == fix_strtolower(
-                        trans('Type_dir')
+                        rfm_trans('Type_dir')
                     ) || !check_extension(
                         $file_array['extension'],
                         $config
@@ -1670,7 +1670,7 @@ if ($config['upload_files']) { ?>
                         <input type="hidden" class="name" value="<?php
                         echo $file_array['file_lcase']; ?>"/>
                         <div class="file-date"><?php
-                            echo date(trans('Date_type'), $file_array['date']) ?></div>
+                            echo date(rfm_trans('Date_type'), $file_array['date']) ?></div>
                         <div class="file-size"><?php
                             echo makeSize($file_array['size']) ?></div>
                         <div class='img-dimension'><?php
@@ -1688,7 +1688,7 @@ if ($config['upload_files']) { ?>
                                 echo $file ?>"/>
 
                                 <a title="<?php
-                                echo trans('Download') ?>" class="tip-right" href="javascript:void('')" <?php
+                                echo rfm_trans('Download') ?>" class="tip-right" href="javascript:void('')" <?php
                                 if ($config['download_files']) echo "onclick=\"$('#form" . $nu . "').submit();\"" ?>><i
                                             class="icon-download <?php
                                             if (!$config['download_files']) {
@@ -1698,7 +1698,7 @@ if ($config['upload_files']) { ?>
                                 <?php
                                 if ($is_img && $src_thumb != "") { ?>
                                     <a class="tip-right preview" title="<?php
-                                    echo trans('Preview') ?>" data-featherlight="<?php
+                                    echo rfm_trans('Preview') ?>" data-featherlight="<?php
                                     echo $src; ?>" href="#"><i class=" icon-eye-open"></i></a>
                                 <?php
                                 } elseif (($is_video || $is_audio) && in_array(
@@ -1712,7 +1712,7 @@ if ($config['upload_files']) { ?>
                                         echo "video";
                                     } ?>"
                                        title="<?php
-                                       echo trans('Preview') ?>"
+                                       echo rfm_trans('Preview') ?>"
                                        data-url="ajax_calls.php?action=media_preview&title=<?php
                                        echo $filename; ?>&file=<?php
                                        echo $rfm_subfolder . $subdir . $file; ?>"
@@ -1720,7 +1720,7 @@ if ($config['upload_files']) { ?>
                                 <?php
                                 } elseif (in_array($file_array['extension'], $config['cad_exts'])) { ?>
                                     <a class="tip-right file-preview-btn" title="<?php
-                                    echo trans('Preview') ?>" data-url="ajax_calls.php?action=cad_preview&title=<?php
+                                    echo rfm_trans('Preview') ?>" data-url="ajax_calls.php?action=cad_preview&title=<?php
                                     echo $filename; ?>&file=<?php
                                     echo $rfm_subfolder . $subdir . $file; ?>"
                                        href="javascript:void('');"><i class=" icon-eye-open"></i></a>
@@ -1730,7 +1730,7 @@ if ($config['upload_files']) { ?>
                                         $config['previewable_text_file_exts']
                                     )) { ?>
                                     <a class="tip-right file-preview-btn" title="<?php
-                                    echo trans('Preview') ?>"
+                                    echo rfm_trans('Preview') ?>"
                                        data-url="ajax_calls.php?action=get_file&sub_action=preview&preview_mode=text&title=<?php
                                        echo $filename; ?>&file=<?php
                                        echo $rfm_subfolder . $subdir . $file; ?>"
@@ -1741,7 +1741,7 @@ if ($config['upload_files']) { ?>
                                         $config['googledoc_file_exts']
                                     )) { ?>
                                     <a class="tip-right file-preview-btn" title="<?php
-                                    echo trans('Preview') ?>"
+                                    echo rfm_trans('Preview') ?>"
                                        data-url="ajax_calls.php?action=get_file&sub_action=preview&preview_mode=google&title=<?php
                                        echo $filename; ?>&file=<?php
                                        echo $rfm_subfolder . $subdir . $file; ?>"
@@ -1755,7 +1755,7 @@ if ($config['upload_files']) { ?>
                                 if ($config['rename_files'] && !$file_prevent_rename) {
                                     echo "rename-file";
                                 } ?>" title="<?php
-                                echo trans('Rename') ?>" data-folder="0" data-permissions="<?php
+                                echo rfm_trans('Rename') ?>" data-folder="0" data-permissions="<?php
                                 echo $file_array['permissions']; ?>">
                                     <i class="icon-pencil <?php
                                     if (!$config['rename_files'] || $file_prevent_rename) {
@@ -1766,8 +1766,8 @@ if ($config['upload_files']) { ?>
                                 if ($config['delete_files'] && !$file_prevent_delete) {
                                     echo "delete-file";
                                 } ?>" title="<?php
-                                echo trans('Erase') ?>" data-confirm="<?php
-                                echo trans('Confirm_del'); ?>">
+                                echo rfm_trans('Erase') ?>" data-confirm="<?php
+                                echo rfm_trans('Confirm_del'); ?>">
                                     <i class="icon-trash <?php
                                     if (!$config['delete_files'] || $file_prevent_delete) {
                                         echo 'icon-white';
@@ -1810,7 +1810,7 @@ if ($config['upload_files']) { ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3><?php
-            echo trans('Preview'); ?></h3>
+            echo rfm_trans('Preview'); ?></h3>
     </div>
     <div class="modal-body">
         <div class="row-fluid body-preview">
@@ -1877,14 +1877,14 @@ if ($config['tui_active']) { ?>
             })();
 
             //Replace Load button with exit button
-            $('.tui-image-editor-header-buttons div').replaceWith('<button class="tui-image-editor-exit-btn" ><?php echo trans(
+            $('.tui-image-editor-header-buttons div').replaceWith('<button class="tui-image-editor-exit-btn" ><?php echo rfm_trans(
                 'Image_Editor_Exit'
             );?></button>');
             $('.tui-image-editor-exit-btn').on('click', function () {
                 exitTUI();
             });
             //Replace download button with save
-            $('.tui-image-editor-download-btn').replaceWith('<button class="tui-image-editor-save-btn" ><?php echo trans(
+            $('.tui-image-editor-download-btn').replaceWith('<button class="tui-image-editor-save-btn" ><?php echo rfm_trans(
                 'Image_Editor_Save'
             );?></button>');
             $('.tui-image-editor-save-btn').on('click', function () {

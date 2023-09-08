@@ -21,6 +21,8 @@ if (empty ($modx->config)) {
 
 if($modx->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
 
+$modx->logEvent(1,1,'<pre>'.print_r($modx->getConfig('manager_language'), true).'</pre>','Заголовок лога');
+
 
 $version = "1.9.14.6";
 if (session_id() == '') {
@@ -78,21 +80,23 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 |    |   |   |   |- responsivefilemanager
 |    |   |   |   |   |- plugin.min.js
 */
-
-if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
-    $_SESSION['up'] = '/assets/images/';
-    $_SESSION['cp'] = '../../../../assets/images/';
-    setcookie("up", $_SESSION['up']);
-    setcookie("cp", $_SESSION['cp']);
-} elseif ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
-    $_SESSION['up'] = '/assets/files/';
-    $_SESSION['cp'] = '../../../../assets/files/';
-    setcookie("up", $_SESSION['up']);
-    setcookie("cp", $_SESSION['cp']);
-} elseif ($_COOKIE['up'] && $_COOKIE['up']) {
-    $_SESSION['up'] = $_COOKIE['up'];
-    $_SESSION['cp'] = $_COOKIE['cp'];
+if(!empty($_GET['type'])) {
+    if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
+        $_SESSION['up'] = '/assets/images/';
+        $_SESSION['cp'] = '../../../../assets/images/';
+        setcookie("up", $_SESSION['up']);
+        setcookie("cp", $_SESSION['cp']);
+    } elseif ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
+        $_SESSION['up'] = '/assets/files/';
+        $_SESSION['cp'] = '../../../../assets/files/';
+        setcookie("up", $_SESSION['up']);
+        setcookie("cp", $_SESSION['cp']);
+    } elseif ($_COOKIE['up'] && $_COOKIE['up']) {
+        $_SESSION['up'] = $_COOKIE['up'];
+        $_SESSION['cp'] = $_COOKIE['cp'];
+    }
 }
+
 
 $config = [
 
@@ -265,7 +269,7 @@ $config = [
     | default language file name
     |--------------------------------------------------------------------------
     */
-    'default_language' => $lang,
+    'default_language' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -591,6 +595,8 @@ $config = [
     'remember_text_filter'                    => false,
 
 ];
+
+
 
 return array_merge(
     $config,
