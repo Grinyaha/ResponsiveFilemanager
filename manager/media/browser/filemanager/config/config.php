@@ -290,7 +290,7 @@ $config = [
     //Show or not show filters button in filemanager
     'show_filter_buttons'                   => true,
     //Show or not language selection feature in filemanager
-    'show_language_selection'				=> true,
+    'show_language_selection'				=> false,
     //active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
     'transliteration'						=> false,
     //convert all spaces on files name and folders name with $replace_with variable
