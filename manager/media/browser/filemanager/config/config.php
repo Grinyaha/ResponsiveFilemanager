@@ -2,6 +2,7 @@
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
+define('NO_TRACY', true);
 
 include_once($_SERVER['DOCUMENT_ROOT'] . '/assets/cache/siteManager.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/index.php');
