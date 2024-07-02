@@ -4,7 +4,7 @@
  *
  *
  * @category    plugin
- * @version     1.9.14.7
+ * @version     1.9.14.8
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @package     modx
  * @internal    @events OnRichTextEditorInit,OnUserFormRender,OnModFormRender,OnDocFormRender,OnInterfaceSettingsRender
@@ -15,7 +15,7 @@
  * @documentation https://github.com/Grinyaha/ResponsiveFilemanager/README.md
  * @author      plugin author Grinyaha & 64j
  * @author      ResponsiveFileManager author trippo (https://github.com/trippo/ResponsiveFilemanager)
- * @lastupdate  23/10/2023
+ * @lastupdate  02/07/2024
  */
 
 

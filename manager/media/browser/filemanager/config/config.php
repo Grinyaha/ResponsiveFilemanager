@@ -22,7 +22,7 @@ if (empty ($modx->config)) {
 
 if($modx->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
 
-$version = "1.9.14.6";
+$version = "1.9.14.8";
 if (session_id() == '') {
     session_start();
 }
@@ -295,14 +295,14 @@ $config = [
     //active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
     'transliteration'						=> false,
     //convert all spaces on files name and folders name with $replace_with variable
-    'convert_spaces'						=> true,
+    'convert_spaces'						=> false,
     //convert all spaces on files name and folders name this value
     'replace_with'							=> "_",
     //convert to lowercase the files and folders name
     'lower_case'							=> false,
 
     //Add ?484899493349 (time value) to returned images to prevent cache
-    'add_time_to_img'                       => false,
+    'add_time_to_img'                       => true,
 
 
     //*******************************************
@@ -538,7 +538,7 @@ $config = [
     /*******************
     * URL upload
     *******************/
-    'url_upload'                             => true,
+    'url_upload'                             => false,
 
 
     //************************************

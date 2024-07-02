@@ -635,14 +635,14 @@ if ($config['upload_files']) { ?>
                                         </div>
                                         <div class="text-center">
                                             <!-- The fileinput-button span is used to style the file input field as button -->
-                                            <span class="btn btn-success fileinput-button">
+                                            <span class="btn btn-secondary fileinput-button">
                                         <i class="glyphicon glyphicon-plus"></i>
                                         <span><?php
                                             echo rfm_trans('Upload_add_files'); ?></span>
                                         <input type="file" name="files[]" multiple="multiple" accept="<?php
                                         echo '.' . implode(',.', $config['ext']); ?>">
                                     </span>
-                                            <button type="submit" class="btn btn-warning start">
+                                            <button type="submit" class="btn btn-success start">
                                                 <i class="glyphicon glyphicon-upload"></i>
                                                 <span><?php
                                                     echo rfm_trans('Upload_start'); ?></span>
@@ -889,8 +889,7 @@ if ($config['upload_files']) { ?>
                     return $y['is_dir'] ? 1 : -1;
                 } else {
                     return ($descending)
-                        ?  $x['date'] <=> $y['date']
-                        :  $y['date'] <=> $x['date'];
+                        ?  $x['date'] < $y['date'] :  $y['date'] >= $x['date'];
                 }
             });
             break;
@@ -901,8 +900,7 @@ if ($config['upload_files']) { ?>
                     return $y['is_dir'] ? 1 : -1;
                 } else {
                     return ($descending)
-                        ?  $x['size'] <=> $y['size']
-                        :  $y['size'] <=> $x['size'];
+                        ?  $x['size'] < $y['size'] :  $y['size'] >= $x['size'];
                 }
             });
             break;
@@ -913,8 +911,7 @@ if ($config['upload_files']) { ?>
                     return $y['is_dir'] ? 1 : -1;
                 } else {
                     return ($descending)
-                        ?  $x['extension'] <=> $y['extension']
-                        :  $y['extension'] <=> $x['extension'];
+                        ?  $x['extension'] < $y['extension'] :  $y['extension'] >= $x['extension'];
                 }
             });
             break;
