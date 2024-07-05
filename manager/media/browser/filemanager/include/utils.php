@@ -729,22 +729,25 @@ function sanitize($str)
  */
 function fix_filename($str, $config, $is_folder = false)
 {
+    global $modx;
+
     $str = sanitize($str);
     if ($config['convert_spaces']) {
         $str = str_replace(' ', $config['replace_with'], $str);
     }
 
+
+
     if ($config['transliteration']) {
         if (!mb_detect_encoding($str, 'UTF-8', true)) {
             $str = utf8_encode($str);
         }
-        if (function_exists('transliterator_transliterate')) {
-            $str = transliterator_transliterate('Any-Latin; Latin-ASCII', $str);
-        } else {
-            $str = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $str);
-        }
 
-        $str = preg_replace("/[^a-zA-Z0-9\.\[\]_| -]/", '', $str);
+        //$current_encoding = mb_detect_encoding($str, mb_list_encodings(), true);
+        //$str = mb_convert_encoding($str, 'UTF-8', $current_encoding);
+
+        $str = $modx->stripAlias($str);
+
     }
 
     $str = str_replace(['"', "'", "/", "\\"], "", $str);

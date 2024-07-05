@@ -4,7 +4,7 @@
  *
  *
  * @category    plugin
- * @version     1.9.14.8
+ * @version     1.9.14.9
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @package     modx
  * @internal    @events OnRichTextEditorInit,OnUserFormRender,OnModFormRender,OnDocFormRender,OnInterfaceSettingsRender

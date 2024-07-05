@@ -1,5 +1,7 @@
 <?php
 
+$version = "1.9.14.9";
+
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
 define('NO_TRACY', true);
@@ -22,7 +24,7 @@ if (empty ($modx->config)) {
 
 if($modx->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
 
-$version = "1.9.14.8";
+
 if (session_id() == '') {
     session_start();
 }
@@ -293,7 +295,7 @@ $config = [
     //Show or not language selection feature in filemanager
     'show_language_selection'				=> false,
     //active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
-    'transliteration'						=> false,
+    'transliteration'						=> true,
     //convert all spaces on files name and folders name with $replace_with variable
     'convert_spaces'						=> false,
     //convert all spaces on files name and folders name this value
