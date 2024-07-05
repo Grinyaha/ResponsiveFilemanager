@@ -6,7 +6,8 @@ if (!isset($_SESSION['RF']) || $_SESSION['RF']["verify"] != "RESPONSIVEfilemanag
 
 require __DIR__ . '/Response.php';
 
-if (!function_exists('response')) {
+if (!function_exists('responseRFM')) {
+
     /**
      * Response construction helper
      *
@@ -16,9 +17,9 @@ if (!function_exists('response')) {
      *
      * @return \Response|\Illuminate\Http\Response
      */
-    function response($content = '', $statusCode = 200, $headers = [])
+    function responseRFM($content = '', $statusCode = 200, $headers = [])
     {
-        $responseClass = class_exists('Illuminate\Http\Response') ? '\Illuminate\Http\Response' : 'Response';
+        $responseClass = class_exists('Illuminate\Http\Response') ? '\Illuminate\Http\Response' : 'ResponseRFM';
 
         return new $responseClass($content, $statusCode, $headers);
     }
@@ -571,6 +572,7 @@ function checkresultingsize($sizeAdded)
  */
 function create_folder($path = null, $path_thumbs = null, $ftp = null, $config = null)
 {
+    global $modx;
     if ($ftp) {
         $result_path = $result_thumb = false;
         $result_path = $ftp->mkdir($path);
@@ -580,7 +582,7 @@ function create_folder($path = null, $path_thumbs = null, $ftp = null, $config =
         }
         return true;
     } else {
-        if (file_exists($path) || file_exists($path_thumbs)) {
+        if (file_exists($path)) {
             return false;
         }
         $oldumask = umask(0);

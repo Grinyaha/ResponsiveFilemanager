@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Class Response
@@ -7,7 +7,7 @@
  *
  * @package Filemanager
  */
-class Response {
+class ResponseRFM {
 
 	const HTTP_CONTINUE = 100;
 	const HTTP_SWITCHING_PROTOCOLS = 101;

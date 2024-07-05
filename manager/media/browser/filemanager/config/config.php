@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.9.14.9";
+$version = "1.10";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -84,16 +84,26 @@ if(!empty($_GET['type']) || !empty($_GET['Type'])) {
     if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
         $_SESSION['up'] = '/assets/images/';
         $_SESSION['cp'] = '../../../../assets/images/';
+        $_SESSION['thumb_bp'] = '../../../../assets/.thumbs/images/';
+        $_SESSION['thumb_ud'] = '/assets/.thumbs/images/';
         setcookie("up", $_SESSION['up']);
         setcookie("cp", $_SESSION['cp']);
+        setcookie("thumb_bp", $_SESSION['thumb_bp']);
+        setcookie("thumb_ud", $_SESSION['thumb_ud']);
     } elseif ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
         $_SESSION['up'] = '/assets/files/';
         $_SESSION['cp'] = '../../../../assets/files/';
+        $_SESSION['thumb_bp'] = '../../../../assets/.thumbs/files/';
+        $_SESSION['thumb_ud'] = '/assets/.thumbs/files/';
         setcookie("up", $_SESSION['up']);
         setcookie("cp", $_SESSION['cp']);
+        setcookie("thumb_bp", $_SESSION['thumb_bp']);
+        setcookie("thumb_ud", $_SESSION['thumb_ud']);
     } elseif ($_COOKIE['up'] && $_COOKIE['up']) {
         $_SESSION['up'] = $_COOKIE['up'];
         $_SESSION['cp'] = $_COOKIE['cp'];
+        $_SESSION['thumb_bp'] = $_COOKIE['thumb_bp'];
+        $_SESSION['thumb_ud'] = $_COOKIE['thumb_ud'];
     }
 }
 
@@ -138,7 +148,7 @@ $config = [
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_base_path' => '../../../../assets/.thumbs/images/',
+    'thumbs_base_path' => $_SESSION['thumb_bp'],
 
     /*
     |--------------------------------------------------------------------------
@@ -149,7 +159,7 @@ $config = [
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_upload_dir' => '/assets/.thumbs/images/',
+    'thumbs_upload_dir' => $_SESSION['thumb_ud'],
 
 
     /*
@@ -451,8 +461,8 @@ $config = [
     'files_without_extension'	              => false,
 
     /******************
-    * TUI Image Editor config
-    *******************/
+     * TUI Image Editor config
+     *******************/
     // Add or modify the options below as needed - they will be json encoded when added to the configuration so arrays can be utilized as needed
     'tui_active'                           => true,
     'tui_position'                         => 'bottom',
@@ -538,8 +548,8 @@ $config = [
     'hidden_files'                            => ['config.php'],
 
     /*******************
-    * URL upload
-    *******************/
+     * URL upload
+     *******************/
     'url_upload'                             => false,
 
 

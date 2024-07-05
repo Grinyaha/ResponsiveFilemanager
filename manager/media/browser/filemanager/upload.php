@@ -8,7 +8,7 @@ try {
     include 'include/utils.php';
 
     if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager") {
-        response(rfm_trans('forbidden') . AddErrorLocation(), 403)->send();
+        responseRFM(rfm_trans('forbidden') . AddErrorLocation(), 403)->send();
         exit;
     }
 
@@ -35,7 +35,7 @@ try {
     $fldr = rawurldecode(trim(strip_tags($_POST['fldr']), "/") . "/");
 
     if (!checkRelativePath($fldr)) {
-        response(rfm_trans('wrong path') . AddErrorLocation())->send();
+        responseRFM(rfm_trans('wrong path') . AddErrorLocation())->send();
         exit;
     }
 
