@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.10";
+$version = "1.11";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -10,32 +10,27 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/assets/cache/siteManager.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/index.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/manager/media/browser/filemanager/lang/languages.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/manager/media/browser/filemanager/lang/ru.php');
-//$modx = evolutionCMS();
 
-$modx->db->connect();
+evolutionCMS()->db->connect();
 
 if (!isset($_SESSION['mgrValidated'])) {
     die("<b>ACCESS DENIED</b><br /><br />Please use the MODX Content Manager instead of accessing this file directly.");
 }
 
-if (empty ($modx->config)) {
-    $modx->getSettings();
+if (empty (evolutionCMS()->config)) {
+    evolutionCMS()->getSettings();
 }
 
-if($modx->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
+if(evolutionCMS()->getConfig('manager_language')!='ru') $lang = 'en_EN'; else $lang = 'ru';
 
-
-if (session_id() == '') {
-    session_start();
-}
 
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 mb_language('uni');
 mb_regex_encoding('UTF-8');
 ob_start('mb_output_handler');
-date_default_timezone_set('Europe/Rome');
-setlocale(LC_CTYPE, 'en_US'); //correct transliteration
+date_default_timezone_set('Europe/Moscow');
+setlocale(LC_CTYPE, 'ru_RU.UTF-8'); //correct transliteration
 
 /*
 |--------------------------------------------------------------------------
@@ -80,7 +75,9 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 |    |   |   |   |- responsivefilemanager
 |    |   |   |   |   |- plugin.min.js
 */
+
 if(!empty($_GET['type']) || !empty($_GET['Type'])) {
+
     if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
         $_SESSION['up'] = '/assets/images/';
         $_SESSION['cp'] = '../../../../assets/images/';
@@ -90,7 +87,8 @@ if(!empty($_GET['type']) || !empty($_GET['Type'])) {
         setcookie("cp", $_SESSION['cp']);
         setcookie("thumb_bp", $_SESSION['thumb_bp']);
         setcookie("thumb_ud", $_SESSION['thumb_ud']);
-    } elseif ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
+    }
+    if ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
         $_SESSION['up'] = '/assets/files/';
         $_SESSION['cp'] = '../../../../assets/files/';
         $_SESSION['thumb_bp'] = '../../../../assets/.thumbs/files/';
@@ -99,12 +97,8 @@ if(!empty($_GET['type']) || !empty($_GET['Type'])) {
         setcookie("cp", $_SESSION['cp']);
         setcookie("thumb_bp", $_SESSION['thumb_bp']);
         setcookie("thumb_ud", $_SESSION['thumb_ud']);
-    } elseif ($_COOKIE['up'] && $_COOKIE['up']) {
-        $_SESSION['up'] = $_COOKIE['up'];
-        $_SESSION['cp'] = $_COOKIE['cp'];
-        $_SESSION['thumb_bp'] = $_COOKIE['thumb_bp'];
-        $_SESSION['thumb_ud'] = $_COOKIE['thumb_ud'];
     }
+
 }
 
 

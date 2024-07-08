@@ -572,7 +572,6 @@ function checkresultingsize($sizeAdded)
  */
 function create_folder($path = null, $path_thumbs = null, $ftp = null, $config = null)
 {
-    global $modx;
     if ($ftp) {
         $result_path = $result_thumb = false;
         $result_path = $ftp->mkdir($path);
@@ -731,14 +730,11 @@ function sanitize($str)
  */
 function fix_filename($str, $config, $is_folder = false)
 {
-    global $modx;
 
     $str = sanitize($str);
     if ($config['convert_spaces']) {
         $str = str_replace(' ', $config['replace_with'], $str);
     }
-
-
 
     if ($config['transliteration']) {
         if (!mb_detect_encoding($str, 'UTF-8', true)) {
@@ -748,7 +744,7 @@ function fix_filename($str, $config, $is_folder = false)
         //$current_encoding = mb_detect_encoding($str, mb_list_encodings(), true);
         //$str = mb_convert_encoding($str, 'UTF-8', $current_encoding);
 
-        $str = $modx->stripAlias($str);
+        $str = evolutionCMS()->stripAlias($str);
 
     }
 
