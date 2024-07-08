@@ -249,6 +249,7 @@ class UploadHandler
     }
 
     protected function get_upload_path($file_name = null, $version = null) {
+
         $file_name = $file_name ?: '';
         if (empty($version)) {
             $version_path = '';
@@ -1133,6 +1134,7 @@ class UploadHandler
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
         $index = null, $content_range = null) {
+
         $file = new \stdClass();
         $file->name = $this->get_file_name($uploaded_file, $name, $size, $type, $error,
                                            $index, $content_range);
@@ -1412,13 +1414,15 @@ class UploadHandler
         $size =  $content_range ? $content_range[3] : null;
         $files = [];
         if ($upload) {
+
             if (is_array($upload['tmp_name'])) {
                 // param_name is an array identifier like "files[]",
                 // $upload is a multi-dimensional array:
+
                 foreach ($upload['tmp_name'] as $index => $value) {
                     $files[] = $this->handle_file_upload(
                         $upload['tmp_name'][$index],
-                        $file_name ?: $upload['name'][$index],
+                        evolutionCMS()->stripAlias($file_name) ?: evolutionCMS()->stripAlias($upload['name'][$index]),
                         $size ?: $upload['size'][$index],
                         $upload['type'][$index],
                         isset($upload['error']) ? $upload['error'][$index] : null,
@@ -1431,7 +1435,7 @@ class UploadHandler
                 // $upload is a one-dimensional array:
                 $files[] = $this->handle_file_upload(
                     $upload['tmp_name'] ?? null,
-                    $file_name ?: ($upload['name'] ?? null),
+                        evolutionCMS()->stripAlias($file_name) ?: (evolutionCMS()->stripAlias($upload['name']) ?? null),
                     $size ?: ($upload['size'] ?? $this->get_server_var('CONTENT_LENGTH')),
                     $upload['type'] ?? $this->get_server_var('CONTENT_TYPE'),
                     $upload['error'] ?? null,
