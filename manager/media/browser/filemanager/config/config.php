@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.12";
+$version = "1.13";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -76,31 +76,32 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 |    |   |   |   |   |- plugin.min.js
 */
 
+//если открывается окошко
 if(!empty($_GET['type']) || !empty($_GET['Type'])) {
 
-    if ($_GET['type'] == 'images' || $_GET['Type'] == 'images' || $_GET['type'] == 1) {
-        $_SESSION['up'] = '/assets/images/';
-        $_SESSION['cp'] = '../../../../assets/images/';
-        $_SESSION['thumb_bp'] = '../../../../assets/.thumbs/images/';
-        $_SESSION['thumb_ud'] = '/assets/.thumbs/images/';
-        setcookie("up", $_SESSION['up']);
-        setcookie("cp", $_SESSION['cp']);
-        setcookie("thumb_bp", $_SESSION['thumb_bp']);
-        setcookie("thumb_ud", $_SESSION['thumb_ud']);
-    }
-    if ($_GET['type'] == 'files' || $_GET['Type'] == 'files' || $_GET['type'] == 2) {
-        $_SESSION['up'] = '/assets/files/';
-        $_SESSION['cp'] = '../../../../assets/files/';
-        $_SESSION['thumb_bp'] = '../../../../assets/.thumbs/files/';
-        $_SESSION['thumb_ud'] = '/assets/.thumbs/files/';
-        setcookie("up", $_SESSION['up']);
-        setcookie("cp", $_SESSION['cp']);
-        setcookie("thumb_bp", $_SESSION['thumb_bp']);
-        setcookie("thumb_ud", $_SESSION['thumb_ud']);
-    }
-
+    if (isset($_GET['type'])) $_SESSION['rfm_type'] = $_GET['type'];
+    if (isset($_GET['Type'])) $_SESSION['rfm_type'] = $_GET['Type'];
 }
 
+
+if(!empty($_SERVER['HTTP_REFERER'])) {
+    parse_str($_SERVER['HTTP_REFERER'], $params);
+   if(!empty($params['type'])) $_SESSION['rfm_type'] = $params['type'];
+   if(!empty($params['amp;type'])) $_SESSION['rfm_type'] = $params['amp;type'];
+    if(!empty($params['Type'])) $_SESSION['rfm_type'] = $params['type'];
+    if(!empty($params['amp;Type'])) $_SESSION['rfm_type'] = $params['amp;type'];
+}
+
+if(!empty($_SERVER['QUERY_STRING'])) {
+    parse_str($_SERVER['QUERY_STRING'], $params);
+    if(!empty($params['type'])) $_SESSION['rfm_type'] = $params['type'];
+    if(!empty($params['amp;type'])) $_SESSION['rfm_type'] = $params['amp;type'];
+}
+
+$upload_dir = '/'.$modx->getConfig('rb_base_url').$_SESSION['rfm_type'].'/';
+$current_path = '../../../../'.$modx->getConfig('rb_base_url').$_SESSION['rfm_type'].'/';
+$thumbs_base_path = '../../../../'.$modx->getConfig('rb_base_url').'.thumbs/'.$_SESSION['rfm_type'].'/';
+$thumbs_upload_dir = '/'.$modx->getConfig('rb_base_url').'.thumbs/'.$_SESSION['rfm_type'].'/';
 
 
 $config = [
@@ -122,7 +123,7 @@ $config = [
     | with start and final /
     |
     */
-    'upload_dir' => $_SESSION['up'],
+    'upload_dir' => $upload_dir,
     /*
     |--------------------------------------------------------------------------
     | relative path from filemanager folder to upload folder
@@ -131,7 +132,7 @@ $config = [
     | with final /
     |
     */
-    'current_path' => $_SESSION['cp'],
+    'current_path' => $current_path,
 
     /*
     |--------------------------------------------------------------------------
@@ -142,7 +143,7 @@ $config = [
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_base_path' => $_SESSION['thumb_bp'],
+    'thumbs_base_path' => $thumbs_base_path,
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +154,7 @@ $config = [
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_upload_dir' => $_SESSION['thumb_ud'],
+    'thumbs_upload_dir' => $thumbs_upload_dir,
 
 
     /*
@@ -257,7 +258,7 @@ $config = [
     | in Megabytes
     |
     */
-    'MaxSizeUpload' => 10000,
+    'MaxSizeUpload' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -429,7 +430,7 @@ $config = [
     //**********************
     'ext_img'                                 => ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'ico', 'webp'], //Images
     'ext_file'                                => ['doc', 'docx', 'rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv', 'html', 'xhtml', 'psd', 'sql', 'log', 'fla', 'xml', 'ade', 'adp', 'mdb', 'accdb', 'ppt', 'pptx', 'odt', 'ots', 'ott', 'odb', 'odg', 'otp', 'otg', 'odf', 'ods', 'odp', 'css', 'ai', 'kmz','dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm', 'tiff',''], //Files
-    'ext_video'                               => ['mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm"], //Video
+    'ext_video'                               => ['mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm","mkv"], //Video
     'ext_music'                               => ['mp3', 'mpga', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav'], //Audio
     'ext_misc'                                => ['zip', 'rar', 'gz', 'tar', 'iso', 'dmg'], //Archives
 
