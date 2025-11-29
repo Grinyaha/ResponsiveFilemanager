@@ -86,8 +86,8 @@ if(!empty($_GET['type']) || !empty($_GET['Type'])) {
 
 if(!empty($_SERVER['HTTP_REFERER'])) {
     parse_str($_SERVER['HTTP_REFERER'], $params);
-    if(!empty($params['type'])) $_SESSION['rfm_type'] = $params['type'];
-    if(!empty($params['amp;type'])) $_SESSION['rfm_type'] = $params['amp;type'];
+   if(!empty($params['type'])) $_SESSION['rfm_type'] = $params['type'];
+   if(!empty($params['amp;type'])) $_SESSION['rfm_type'] = $params['amp;type'];
     if(!empty($params['Type'])) $_SESSION['rfm_type'] = $params['Type'];
     if(!empty($params['amp;Type'])) $_SESSION['rfm_type'] = $params['amp;Type'];
 }
@@ -104,9 +104,6 @@ $upload_dir = '/'.$modx->getConfig('rb_base_url').$_SESSION['rfm_type'].'/';
 $current_path = '../../../../'.$modx->getConfig('rb_base_url').$_SESSION['rfm_type'].'/';
 $thumbs_base_path = '../../../../'.$modx->getConfig('rb_base_url').'.thumbs/'.$_SESSION['rfm_type'].'/';
 $thumbs_upload_dir = '/'.$modx->getConfig('rb_base_url').'.thumbs/'.$_SESSION['rfm_type'].'/';
-
-evo()->logEvent(1,1,"<pre>".print_r($_SERVER['HTTP_REFERER'], true)."</pre>",'FOR EVO333 !!!');
-
 
 $config = [
 
