@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.15";
+$version = "1.16";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -79,15 +79,20 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 
 //если открывается окошко
 if (!empty($_GET['type']) || !empty($_GET['Type'])) {
-
-    if (isset($_GET['type'])) $_SESSION['rfm_type'] = $_GET['type'];
-    if (isset($_GET['Type'])) $_SESSION['rfm_type'] = $_GET['Type'];
+    if (!is_numeric($_GET['type'])) {
+        if (isset($_GET['type'])) $_SESSION['rfm_type'] = $_GET['type'];
+    }
+    if (!is_numeric($_GET['Type'])) {
+        if (isset($_GET['Type'])) $_SESSION['rfm_type'] = $_GET['Type'];
+    }
 }
 
 if (!empty($_SERVER['HTTP_REFERER'])) {
     parse_str($_SERVER['HTTP_REFERER'], $params);
     foreach ($params as $k => $v) {
-        if(strpos($k, 'ype')!==false) $_SESSION['rfm_type'] = $v;
+        if (strpos($k, 'ype') !== false)  {
+            if (!is_numeric($v)) $_SESSION['rfm_type'] = $v;
+        }
     }
 }
 
@@ -95,12 +100,14 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     parse_str($_SERVER['QUERY_STRING'], $params);
     parse_str($_SERVER['HTTP_REFERER'], $params);
     foreach ($params as $k => $v) {
-        if(strpos($k, 'ype')!==false) $_SESSION['rfm_type'] = $v;
+        if (strpos($k, 'ype') !== false)  {
+            if (!is_numeric($v)) $_SESSION['rfm_type'] = $v;
+        }
     }
 }
 
-if ($_SESSION['rfm_type'] == 1) $_SESSION['rfm_type'] = 'images';
-if ($_SESSION['rfm_type'] == 2) $_SESSION['rfm_type'] = 'files';
+//if ($_SESSION['rfm_type'] == "0" || $_SESSION['rfm_type'] == 1) $_SESSION['rfm_type'] = 'images';
+//if ($_SESSION['rfm_type'] == 2) $_SESSION['rfm_type'] = 'files';
 //$modx->logEvent(1, 1, '<pre>' . print_r($params, true) . '</pre>', 'RFM TYPE !!!');
 
 $upload_dir = '/' . $modx->getConfig('rb_base_url') . $_SESSION['rfm_type'] . '/';
