@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.16";
+$version = "1.17";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -91,7 +91,7 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
     parse_str($_SERVER['HTTP_REFERER'], $params);
     foreach ($params as $k => $v) {
         if (strpos($k, 'ype') !== false)  {
-            if (!is_numeric($v)) $_SESSION['rfm_type'] = $v;
+            if ($v == 'images' || $v == 'files') $_SESSION['rfm_type'] = $v;
         }
     }
 }
@@ -101,7 +101,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     parse_str($_SERVER['HTTP_REFERER'], $params);
     foreach ($params as $k => $v) {
         if (strpos($k, 'ype') !== false)  {
-            if (!is_numeric($v)) $_SESSION['rfm_type'] = $v;
+            if ($v == 'images' || $v == 'files') $_SESSION['rfm_type'] = $v;
         }
     }
 }
