@@ -90,7 +90,7 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
             if ($v == 'images' || $v == 'files') $_SESSION['rfm_type'] = $v;
         }
     }
-    $modx->logEvent(1, 1, '<pre>' . print_r($params, true) . '</pre>', 'RFM TYPE3 !!!');
+    //$modx->logEvent(1, 1, '<pre>' . print_r($params, true) . '</pre>', 'RFM TYPE3 !!!');
 }
 
 if (!empty($_SERVER['QUERY_STRING'])) {
