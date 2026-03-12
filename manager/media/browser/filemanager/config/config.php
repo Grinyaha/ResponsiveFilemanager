@@ -1,6 +1,6 @@
 <?php
 
-$version = "1.17";
+$version = "1.18";
 
 define('MODX_API_MODE', true);
 define('IN_MANAGER_MODE', true);
@@ -79,12 +79,8 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 
 //если открывается окошко
 if (!empty($_GET['type']) || !empty($_GET['Type'])) {
-    if (!is_numeric($_GET['type'])) {
-        if (isset($_GET['type'])) $_SESSION['rfm_type'] = $_GET['type'];
-    }
-    if (!is_numeric($_GET['Type'])) {
-        if (isset($_GET['Type'])) $_SESSION['rfm_type'] = $_GET['Type'];
-    }
+    if ($_GET['type'] == 'images' || $_GET['type'] == 'files') $_SESSION['rfm_type'] = $_GET['type'];
+    if ($_GET['Type'] == 'images' || $_GET['Type'] == 'files') $_SESSION['rfm_type'] = $_GET['Type'];
 }
 
 if (!empty($_SERVER['HTTP_REFERER'])) {
@@ -94,6 +90,7 @@ if (!empty($_SERVER['HTTP_REFERER'])) {
             if ($v == 'images' || $v == 'files') $_SESSION['rfm_type'] = $v;
         }
     }
+    $modx->logEvent(1, 1, '<pre>' . print_r($params, true) . '</pre>', 'RFM TYPE3 !!!');
 }
 
 if (!empty($_SERVER['QUERY_STRING'])) {
@@ -108,7 +105,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
 //if ($_SESSION['rfm_type'] == "0" || $_SESSION['rfm_type'] == 1) $_SESSION['rfm_type'] = 'images';
 //if ($_SESSION['rfm_type'] == 2) $_SESSION['rfm_type'] = 'files';
-//$modx->logEvent(1, 1, '<pre>' . print_r($params, true) . '</pre>', 'RFM TYPE !!!');
+
 
 $upload_dir = '/' . $modx->getConfig('rb_base_url') . $_SESSION['rfm_type'] . '/';
 $current_path = '../../../../' . $modx->getConfig('rb_base_url') . $_SESSION['rfm_type'] . '/';
